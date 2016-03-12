@@ -1,3 +1,6 @@
+{% if __SELF__.message %}
+<p class="bg-warning">{{ __SELF__.message }}</p>
+{% else %}
 <form data-request="onSendMail" class="form-horizontal">
   <div class="form-group" id="contactus-email-div">
     <label for="email" class="col-sm-2 control-label">E-Mail</label>
@@ -23,3 +26,4 @@
     </div>
   </div>
 </form>
+{% endif %}

@@ -20,7 +20,7 @@ class Plugin extends PluginBase
             'name'        => 'Contact Us',
             'description' => 'No description provided yet...',
             'author'      => 'Fencus',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-at'
         ];
     }
 
@@ -35,6 +35,13 @@ class Plugin extends PluginBase
             'Fencus\ContactUs\Components\ContactUs' => 'contactUs',
         ];
     }
+    
+    public function registerMailTemplates()
+    {
+    	return [
+    			'fencus.contactus::mail.message' => 'Message from front-end to receiver.',
+    	];
+    }
 
     /**
      * Registers any back-end permissions used by this plugin.
@@ -43,14 +50,7 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
-        return [
-            'fencus.contactus.some_permission' => [
-                'tab' => 'ContactUs',
-                'label' => 'Some permission'
-            ],
-        ];
+        return [];
     }
 
     /**
@@ -60,17 +60,7 @@ class Plugin extends PluginBase
      */
     public function registerNavigation()
     {
-        return []; // Remove this line to activate
-
-        return [
-            'contactus' => [
-                'label'       => 'ContactUs',
-                'url'         => Backend::url('fencus/contactus/mycontroller'),
-                'icon'        => 'icon-leaf',
-                'permissions' => ['fencus.contactus.*'],
-                'order'       => 500,
-            ],
-        ];
+        return [];
     }
 
 }
